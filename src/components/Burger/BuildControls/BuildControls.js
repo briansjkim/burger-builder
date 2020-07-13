@@ -1,5 +1,11 @@
 import React from 'react';
 
-const BuildControls = (props) => ();
+import classes from './BuildControls.css';
+
+const BuildControls = (props) => (
+    <div>
+
+    </div>
+);
 
 export default BuildControls;
