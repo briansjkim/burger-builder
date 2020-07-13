@@ -6,6 +6,7 @@ import classes from './Burger.css';
 const Burger = (props) => {
     return (
         <div className={classes.Burger}>
+            {/* hard-coded for now */}
             <BurgerIngredient type="bread-top" />
             <BurgerIngredient type="cheese" />
             <BurgerIngredient type="meat" />
