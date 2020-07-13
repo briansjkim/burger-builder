@@ -10,7 +10,6 @@ const Burger = (props) => {
         // props.ingredients[igKey] is the number of ingredients 
         // creating an array with a length of the number of each given ingredient
         return [...Array(props.ingredients[igKey])].map((_, i) => {
-            console.log(i)
             return <BurgerIngredient key={igKey + i} type={igKey} />;
         });
     });
