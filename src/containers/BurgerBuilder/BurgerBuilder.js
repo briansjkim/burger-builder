@@ -29,6 +29,7 @@ class BurgerBuilder extends Component {
             purchasing: false
         };
 
+        // could also just make purchaseHandler an arrow function
         this.purchaseHandler = this.purchaseHandler.bind(this);
     };
 
