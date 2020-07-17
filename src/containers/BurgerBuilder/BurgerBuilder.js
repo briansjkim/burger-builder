@@ -2,8 +2,9 @@ import React, { Component, Fragment } from 'react';
 
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
 
-// name global constants in all capital 
+// name global constants in all capital
 const INGREDIENT_PRICES = {
     salad: 0.5,
     cheese: 0.4,
@@ -34,7 +35,7 @@ class BurgerBuilder extends Component {
         }).reduce((sum, num) => {
             return sum + num;
         }, 0);
-        this.setState( {purchasable: sum > 0} );
+        this.setState({ purchasable: sum > 0 });
     }
 
     addIngredientHandler = (type) => {
@@ -43,7 +44,7 @@ class BurgerBuilder extends Component {
         updatedIngredients[type] = updatedCount;
         const priceAddition = INGREDIENT_PRICES[type];
         const newPrice = this.state.totalPrice + priceAddition;
-        this.setState({ totalPrice: newPrice, ingredients: updatedIngredients});
+        this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
         this.updatePurchaseState(updatedIngredients);
     };
 
@@ -52,11 +53,11 @@ class BurgerBuilder extends Component {
             return;
         }
         const updatedCount = this.state.ingredients[type] - 1;
-        const updatedIngredients = {...this.state.ingredients };
+        const updatedIngredients = { ...this.state.ingredients };
         updatedIngredients[type] = updatedCount;
         const priceDeducation = INGREDIENT_PRICES[type];
         const newPrice = this.state.totalPrice - priceDeducation;
-        this.setState({ totalPrice: newPrice, ingredients: updatedIngredients});
+        this.setState({ totalPrice: newPrice, ingredients: updatedIngredients });
         this.updatePurchaseState(updatedIngredients);
     };
 
@@ -72,6 +73,7 @@ class BurgerBuilder extends Component {
 
         return (
             <Fragment>
+                <Modal />
                 <Burger ingredients={this.state.ingredients} />
                 <BuildControls
                     price={this.state.totalPrice}
