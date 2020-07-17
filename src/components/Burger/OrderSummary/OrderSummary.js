@@ -5,7 +5,7 @@ const OrderSummary = (props) => {
         return <li><span style={{ textTransform: 'capitalize' }}>{igKey}</span>: {props.ingredients[igKey]}</li>
     });
 
-    < Fragment >
+    <Fragment>
         <h3>Your Order</h3>
         <p>A delicious burger with the following ingredients:</p>
         <ul>
