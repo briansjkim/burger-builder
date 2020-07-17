@@ -1,5 +1,9 @@
 import React from 'react';
 
-const Backdrop = (props) => ();
+import classes from './Backdrop.css';
+
+const Backdrop = (props) => (
+    props.show ? <div className={classes.Backdrop}></div> : null;
+);
 
 export default Backdrop;
