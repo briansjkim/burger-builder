@@ -1,11 +1,12 @@
 import React from 'react';
 
+import classes from './SideDrawer.css';
 import Logo from '../../Logo/Logo';
-import NavigationItems from '../../NavigationItems/NavigationItems';
+import NavigationItems from '../NavigationItems/NavigationItems';
 
 const SideDrawer = (props) => {
     return (
-        <div>
+        <div className={classes.SideDrawer}>
             <Logo />
             <nav>
                 <NavigationItems />
