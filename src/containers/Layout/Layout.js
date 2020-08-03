@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
-import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
-import Toolbar from '../Navigation/Toolbar/Toolbar';
+import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import classes from './Layout.css';
 
 class Layout extends Component {
@@ -25,7 +25,10 @@ class Layout extends Component {
         return (
             <Fragment>
                 <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
-                <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler} />
+                <SideDrawer 
+                    open={this.state.showSideDrawer} 
+                    closed={this.sideDrawerClosedHandler}
+                />
                 <main className={classes.Content}>
                     {this.props.children}
                 </main>
