@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DrawerToggle = (props) => (
-    <div>MENU</div>
+    <div onClick={props.clicked}>MENU</div>
 );
 
 export default DrawerToggle;

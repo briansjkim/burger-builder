@@ -7,7 +7,7 @@ import classes from './Toolbar.css';
 
 const Toolbar = (props) => (
     <header className={classes.Toolbar}>
-        <DrawerToggle />
+        <DrawerToggle clicked={props.drawerToggleClicked}/>
         <div className={classes.Logo}>
             <Logo />
         </div>
