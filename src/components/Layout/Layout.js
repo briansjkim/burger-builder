@@ -14,8 +14,10 @@ class Layout extends Component {
     }
 
     sideDrawerToggleHandler = () => {
+        // setState is async so using this.state may cause unexpected outcomes
+        // instead, use the function and use the prevState as the input and return the obj that you want to set/merge as the new state
         this.setState((prevState) => { 
-            return { showSideDrawer: !this.state.showSideDrawer };
+            return { showSideDrawer: !prevState.showSideDrawer };
         });
     }
 
