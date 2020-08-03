@@ -4,12 +4,13 @@ import Backdrop from '../Backdrop/Backdrop';
 import classes from './Modal.css';
 
 class Modal extends Component {
-
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.show !== this.props.show;
     }
     // componentWillUpdate will be executed if shouldComponentUpdate returns true
     // if it returns false, componentWillUpdate won't run
+
+    // it's better to use PureComponent instead of this method, but PureComponent will do more checks than what I need
     componentWillUpdate() {
         console.log('[Modal] WillUpdate');
     }
