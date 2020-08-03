@@ -4,6 +4,7 @@ import Backdrop from '../Backdrop/Backdrop';
 import classes from './Modal.css';
 
 class Modal extends Component {
+    //  used for performance optimization. nothing else
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.show !== this.props.show;
     }
