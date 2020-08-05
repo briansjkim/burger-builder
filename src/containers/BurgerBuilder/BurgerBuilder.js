@@ -91,7 +91,9 @@ class BurgerBuilder extends Component {
         }
 
         // .json is the endpoint you need for firebase to work properly
-        axios.post('/orders.json', )
+        axios.post('/orders.json', order)
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
     };
 
     render() {
