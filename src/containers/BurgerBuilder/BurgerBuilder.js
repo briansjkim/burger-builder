@@ -4,6 +4,7 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import axios from '../../axios-orders';
 
 // name global constants in all capital
 const INGREDIENT_PRICES = {
@@ -72,7 +73,25 @@ class BurgerBuilder extends Component {
     };
 
     purchaseContinueHandler = () => {
-        alert('You continue');
+        // alert('You continue');
+        const order = {
+            ingredients: this.state.ingredients,
+            // normally, you'd calculate the price in the server
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Brian Kim',
+                address: {
+                    street: 'Teststreet 1',
+                    zipCode: '12345',
+                    country: 'USA'
+                },
+                email: 'test@test.com'
+            },
+            deliveryMethod: 'fast'
+        }
+
+        // .json is the endpoint you need for firebase to work properly
+        axios.post('/orders.json', )
     };
 
     render() {
