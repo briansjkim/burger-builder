@@ -23,6 +23,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
         }
 
         componentWillUnmount() {
+            // once there are more components that will be wrapped by withErrorHandler, we want to remove the interceptors so that there is no interference
             axios.interceptors.request.eject(this.reqInterceptor);
             axios.interceptors.response.eject(this.resInterceptor);
         }
