@@ -4,11 +4,15 @@ import Modal from '../../components/UI/Modal/Modal';
 
 const withErrorHandler = (WrappedComponent, axios) => {
     return class extends Component {
-        state = {
-            error: null
-        }
+        constructor() {
+            super();
 
-        componentDidMount() {
+            this.state = {
+                error: null
+            }
+
+            // use axios interceptors in constructor rather than in componentDidMount so that it runs immediately
+            // componentWillMount is considered legacy and should be avoided now
             axios.interceptors.request.use(req => {
                 this.setState({ error: null })
                 return req;
