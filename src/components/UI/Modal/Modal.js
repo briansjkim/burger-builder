@@ -6,7 +6,7 @@ import classes from './Modal.css';
 class Modal extends Component {
     //  used for performance optimization. nothing else
     shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.show !== this.props.show;
+        return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
     }
     // componentWillUpdate will be executed if shouldComponentUpdate returns true
     // if it returns false, componentWillUpdate won't run
