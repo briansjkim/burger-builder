@@ -10,7 +10,7 @@ class Checkout extends Component {
         totalPrice: 0
     }
 
-    componentDidMount() {
+    UNSAFE_componentWillMount() {
         const query = new URLSearchParams(this.props.location.search);
         const ingredients = {};
         let price = 0;
@@ -23,7 +23,7 @@ class Checkout extends Component {
             }
         }
         this.setState({ ingredients: ingredients, totalPrice: price });
-    };
+    }
 
     checkoutCancelledHandler = () => {
         this.props.history.goBack();
@@ -43,7 +43,7 @@ class Checkout extends Component {
                 />
                 <Route 
                     path={this.props.match.path + '/contact-data'} 
-                    render={() => (<ContactData ingredients={this.state.ingredients} price={this.state.totalPrice}/>)}
+                    render={(props) => (<ContactData ingredients={this.state.ingredients} price={this.state.totalPrice} {...props}/>)}
                 />
             </div>
         )
