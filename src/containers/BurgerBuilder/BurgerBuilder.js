@@ -82,31 +82,31 @@ class BurgerBuilder extends Component {
     };
 
     purchaseContinueHandler = () => {
-        this.setState({ loading: true });
-        const order = {
-            ingredients: this.state.ingredients,
-            // normally, you'd calculate the price in the server
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Brian Kim',
-                address: {
-                    street: 'Teststreet 1',
-                    zipCode: '12345',
-                    country: 'USA'
-                },
-                email: 'test@test.com'
-            },
-            deliveryMethod: 'fast'
-        }
+        // this.setState({ loading: true });
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     // normally, you'd calculate the price in the server
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Brian Kim',
+        //         address: {
+        //             street: 'Teststreet 1',
+        //             zipCode: '12345',
+        //             country: 'USA'
+        //         },
+        //         email: 'test@test.com'
+        //     },
+        //     deliveryMethod: 'fast'
+        // }
 
-        // .json is the endpoint you need for firebase to work properly
-        axios.post('/orders.json', order)
-            .then(response => {
-                this.setState({ loading: false, purchasing: false });
-            })
-            .catch(error => {
-                this.setState({ loading: false, purchasing: false });
-            });
+        // // .json is the endpoint you need for firebase to work properly
+        // axios.post('/orders.json', order)
+        //     .then(response => {
+        //         this.setState({ loading: false, purchasing: false });
+        //     })
+        //     .catch(error => {
+        //         this.setState({ loading: false, purchasing: false });
+        //     });
     };
 
     render() {

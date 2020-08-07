@@ -1,9 +1,12 @@
 import React from 'react';
-import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
+// withRouter is a HOC that we can use to inject the special props from react-router-dom to any component
+import { withRouter } from 'react-router-dom';
 
+import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 import classes from './Burger.css';
 
 const Burger = (props) => {
+
     // passed in props is an object so we have to transform it into an array
     // igKey will be each ingredient
     let transformedIngredients = Object.keys(props.ingredients).map(igKey => {
@@ -28,4 +31,4 @@ const Burger = (props) => {
     );
 };
 
-export default Burger;
+export default withRouter(Burger);
