@@ -12,7 +12,7 @@ class Modal extends Component {
     // if it returns false, componentWillUpdate won't run
 
     // it's better to use PureComponent instead of this method, but PureComponent will do more checks than what I need
-    componentWillUpdate() {
+    UNSAFE_componentWillUpdate() {
         console.log('[Modal] WillUpdate');
     }
 
