@@ -92,6 +92,7 @@ class ContactData extends Component {
     };
 
     inputChangedHandler = (event, inputIdentifier) => {
+        // immutably updating state
         // copy of the state's orderForm
         const updatedOrderForm = {
             ...this.state.orderForm
