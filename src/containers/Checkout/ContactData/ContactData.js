@@ -9,14 +9,66 @@ import Input from '../../../components/UI/Input/Input';
 
 class ContactData extends Component {
     state = {
-        name: '',
-        email: '',
-        address: {
-            street: '',
-            postalCode: ''
-        },
-        loading: false
-    }
+        orderForm: {
+                name: {
+                    // add elements dynamically
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Your Name'
+                    },
+                    value: ''
+                },
+                street: {
+                    // add elements dynamically
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Street'
+                    },
+                    value: ''
+                },
+                zipCode: {
+                    // add elements dynamically
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Zip Code'
+                    },
+                    value: ''
+                },
+                country: {
+                    // add elements dynamically
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Country'
+                    },
+                    value: ''
+                },
+                email: {
+                    // add elements dynamically
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'email',
+                        placeholder: 'Your Email'
+                    },
+                    value: ''
+                },
+                deliveryMethod: {
+                    // add elements dynamically
+                    elementType: 'select',
+                    elementConfig: {
+                        options: [
+                            { value: 'fastest', displayValue: 'Fastest' },
+                            { value: 'cheapest', displayValue: 'Cheapest'}
+                        ]
+                    },
+                    value: ''
+                },
+            },
+            loading: false
+        }
 
     orderHandler = (event) => {
         event.preventDefault();
@@ -25,15 +77,6 @@ class ContactData extends Component {
             ingredients: this.props.ingredients,
             // normally, you'd calculate the price in the server
             price: this.props.price,
-            customer: {
-                name: 'Brian Kim',
-                address: {
-                    street: 'Teststreet 1',
-                    zipCode: '12345',
-                    country: 'USA'
-                },
-                email: 'test@test.com'
-            },
             deliveryMethod: 'fast'
         }
 
@@ -50,7 +93,7 @@ class ContactData extends Component {
 
     render() {
         let form = (<form>
-            <Input inputtype="input" type="text" name="name" placeholder="Your Name"></Input>
+            <Input elementType='...' elementConfig='...' value='...'></Input>
             <Input inputtype="input" type="email" name="email" placeholder="Your Email"></Input>
             <Input inputtype="input" type="text" name="street" placeholder="Street"></Input>
             <Input inputtype="input" type="text" name="postal" placeholder="Postal Code"></Input>
