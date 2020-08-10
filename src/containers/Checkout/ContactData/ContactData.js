@@ -73,11 +73,15 @@ class ContactData extends Component {
     orderHandler = (event) => {
         event.preventDefault();
         this.setState({ loading: true });
+        const formData = {};
+        for (let formElementIdentifier in this.state.orderForm) {
+            formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+        };
         const order = {
             ingredients: this.props.ingredients,
             // normally, you'd calculate the price in the server
             price: this.props.price,
-            deliveryMethod: 'fast'
+            orderData: formData
         }
 
         // .json is the endpoint you need for firebase to work properly
