@@ -10,80 +10,95 @@ import Input from '../../../components/UI/Input/Input';
 class ContactData extends Component {
     state = {
         orderForm: {
-                name: {
-                    // add elements dynamically
-                    elementType: 'input',
-                    elementConfig: {
-                        type: 'text',
-                        placeholder: 'Your Name'
-                    },
-                    value: '',
-                    validation: {
-                        required: true
-                    }
+            name: {
+                // add elements dynamically
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your Name'
                 },
-                street: {
-                    // add elements dynamically
-                    elementType: 'input',
-                    elementConfig: {
-                        type: 'text',
-                        placeholder: 'Street'
-                    },
-                    value: '',
-                    validation: {
-                        required: true
-                    }
+                value: '',
+                validation: {
+                    required: true
                 },
-                zipCode: {
-                    // add elements dynamically
-                    elementType: 'input',
-                    elementConfig: {
-                        type: 'text',
-                        placeholder: 'Zip Code'
-                    },
-                    value: '',
-                    validation: {
-                        required: true
-                    }
-                },
-                country: {
-                    // add elements dynamically
-                    elementType: 'input',
-                    elementConfig: {
-                        type: 'text',
-                        placeholder: 'Country'
-                    },
-                    value: '',
-                    validation: {
-                        required: true
-                    }
-                },
-                email: {
-                    // add elements dynamically
-                    elementType: 'input',
-                    elementConfig: {
-                        type: 'email',
-                        placeholder: 'Your Email'
-                    },
-                    value: '',
-                    validation: {
-                        required: true
-                    }
-                },
-                deliveryMethod: {
-                    // add elements dynamically
-                    elementType: 'select',
-                    elementConfig: {
-                        options: [
-                            { value: 'fastest', displayValue: 'Fastest' },
-                            { value: 'cheapest', displayValue: 'Cheapest'}
-                        ]
-                    },
-                    value: ''
-                },
+                valid: false
             },
-            loading: false
+            street: {
+                 // add elements dynamically
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Street'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false
+            },
+            zipCode: {
+                // add elements dynamically
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Zip Code'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false
+            },
+            country: {
+                // add elements dynamically
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Country'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false
+            },
+            email: {
+                // add elements dynamically
+                elementType: 'input',
+                elementConfig: {
+                    type: 'email',
+                    placeholder: 'Your Email'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false;
+            },
+            deliveryMethod: {
+                // add elements dynamically
+                elementType: 'select',
+                elementConfig: {
+                    options: [
+                        { value: 'fastest', displayValue: 'Fastest' },
+                        { value: 'cheapest', displayValue: 'Cheapest'}
+                    ]
+                },
+                value: ''
+            },
+        },
+        loading: false
+    }
+
+    checkValidity(value, rules) {
+        let isValid = false;
+
+        if (rules.required) {
+            isValid = value.trim() !== '';
         }
+
+        return isValid;
+    }
 
     orderHandler = (event) => {
         event.preventDefault();
@@ -121,6 +136,7 @@ class ContactData extends Component {
             ...updatedOrderForm[inputIdentifier]
         };
         updatedFormElement.value = event.target.value;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
         updatedOrderForm[inputIdentifier] = updatedFormElement;
         this.setState({ orderForm: updatedOrderForm });
     };
