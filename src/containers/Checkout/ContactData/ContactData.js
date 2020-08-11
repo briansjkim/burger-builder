@@ -17,7 +17,10 @@ class ContactData extends Component {
                         type: 'text',
                         placeholder: 'Your Name'
                     },
-                    value: ''
+                    value: '',
+                    validation: {
+                        required: true
+                    }
                 },
                 street: {
                     // add elements dynamically
@@ -26,7 +29,10 @@ class ContactData extends Component {
                         type: 'text',
                         placeholder: 'Street'
                     },
-                    value: ''
+                    value: '',
+                    validation: {
+                        required: true
+                    }
                 },
                 zipCode: {
                     // add elements dynamically
@@ -35,7 +41,10 @@ class ContactData extends Component {
                         type: 'text',
                         placeholder: 'Zip Code'
                     },
-                    value: ''
+                    value: '',
+                    validation: {
+                        required: true
+                    }
                 },
                 country: {
                     // add elements dynamically
@@ -44,7 +53,10 @@ class ContactData extends Component {
                         type: 'text',
                         placeholder: 'Country'
                     },
-                    value: ''
+                    value: '',
+                    validation: {
+                        required: true
+                    }
                 },
                 email: {
                     // add elements dynamically
@@ -53,7 +65,10 @@ class ContactData extends Component {
                         type: 'email',
                         placeholder: 'Your Email'
                     },
-                    value: ''
+                    value: '',
+                    validation: {
+                        required: true
+                    }
                 },
                 deliveryMethod: {
                     // add elements dynamically
