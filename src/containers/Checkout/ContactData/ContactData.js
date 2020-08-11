@@ -45,7 +45,9 @@ class ContactData extends Component {
                 },
                 value: '',
                 validation: {
-                    required: true
+                    required: true,
+                    minLength: 5,
+                    maxLength: 5
                 },
                 valid: false
             },
@@ -73,7 +75,7 @@ class ContactData extends Component {
                 validation: {
                     required: true
                 },
-                valid: false;
+                valid: false
             },
             deliveryMethod: {
                 // add elements dynamically
@@ -94,8 +96,16 @@ class ContactData extends Component {
         let isValid = false;
 
         if (rules.required) {
-            isValid = value.trim() !== '';
-        }
+            isValid = value.trim() !== '' && isValid;
+        };
+
+        if (rules.minLength) {
+            isValid = value.length >= rules.minLength && isValid;
+        };
+
+        if (rules.maxLength) {
+            isValid = value.length <= rules.maxLength && isValid;
+        };
 
         return isValid;
     }
