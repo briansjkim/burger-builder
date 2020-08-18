@@ -23,7 +23,6 @@ class BurgerBuilder extends Component {
         super(props);
 
         this.state = {
-            ingredients: null,
             totalPrice: 2,
             purchasable: false,
             purchasing: false,
@@ -100,7 +99,7 @@ class BurgerBuilder extends Component {
 
     render() {
         const disabledInfo = {
-            ...this.state.ingredients
+            ...this.props.ings
         };
 
         for (let key in disabledInfo) {
@@ -111,14 +110,14 @@ class BurgerBuilder extends Component {
 
         let burger = this.state.error ? <p>Ingredients can't be loaded</p> : <Spinner />;
 
-        if (this.state.ingredients) {
+        if (this.props.ings) {
             burger = (
                 <Fragment>
-                    <Burger ingredients={this.state.ingredients} />
+                    <Burger ingredients={this.props.ings} />
                     <BuildControls
                         price={this.state.totalPrice}
-                        ingredientAdded={this.addIngredientHandler}
-                        ingredientRemoved={this.removeIngredientHandler}
+                        ingredientAdded={this.props.onIngredientAdded}
+                        ingredientRemoved={this.props.onIngredientRemoved}
                         disabled={disabledInfo}
                         purchasable={this.state.purchasable}
                         ordered={this.purchaseHandler}
@@ -128,7 +127,7 @@ class BurgerBuilder extends Component {
 
             orderSummary = <OrderSummary
                 price={this.state.totalPrice}
-                ingredients={this.state.ingredients}
+                ingredients={this.props.ings}
                 purchaseCancelled={this.purchaseCancelHandler}
                 purchaseContinued={this.purchaseContinueHandler}
             />;
