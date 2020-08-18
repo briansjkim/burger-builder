@@ -7,7 +7,6 @@ import axios from '../../../axios-orders';
 import classes from './ContactData.css';
 import Input from '../../../components/UI/Input/Input';
 
-
 class ContactData extends Component {
     state = {
         orderForm: {
@@ -199,7 +198,7 @@ class ContactData extends Component {
         if (this.state.loading) {
             form = <Spinner />
         }
-        
+
         return (
             <div className={classes.ContactData}>
                 <h4>Enter your Contact Data</h4>
