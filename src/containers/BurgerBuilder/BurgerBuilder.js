@@ -10,14 +10,6 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../axios-orders';
 import * as actionTypes from '../../store/actions';
 
-// name global constants in all capital
-const INGREDIENT_PRICES = {
-    salad: 0.5,
-    cheese: 0.4,
-    meat: 1.2,
-    bacon: 1.0
-}
-
 class BurgerBuilder extends Component {
     constructor(props) {
         super(props);
