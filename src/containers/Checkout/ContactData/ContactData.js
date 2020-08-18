@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
@@ -130,7 +131,7 @@ class ContactData extends Component {
             formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
         };
         const order = {
-            ingredients: this.props.ingredients,
+            ingredients: this.props.ings,
             // normally, you'd calculate the price in the server
             price: this.props.price,
             orderData: formData
@@ -194,9 +195,11 @@ class ContactData extends Component {
                 ))}
                 <Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
             </form>);
+
         if (this.state.loading) {
             form = <Spinner />
         }
+        
         return (
             <div className={classes.ContactData}>
                 <h4>Enter your Contact Data</h4>
@@ -206,4 +209,11 @@ class ContactData extends Component {
     }
 };
 
-export default ContactData;
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients,
+        price: state.totalPrice
+    };
+};
+
+export default connect(mapStateToProps)(ContactData);
