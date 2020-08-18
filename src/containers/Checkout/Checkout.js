@@ -18,26 +18,24 @@ class Checkout extends Component {
         return (
             <div>
                 <CheckoutSummary 
-                    ingredients={this.state.ingredients}
+                    ingredients={this.props.ings}
                     checkoutCancelled={this.checkoutCancelledHandler}
                     checkoutContinued={this.checkoutContinuedHandler}
                 />
                 <Route 
                     path={this.props.match.path + '/contact-data'} 
-                    render={(props) => (<ContactData ingredients={this.state.ingredients} price={this.state.totalPrice} {...props}/>)}
+                    component={ContactData}
                 />
             </div>
-        )
-    }
+        );
+    };
 }
 
 const mapStateToProps = state => {
     return {
         ings: state.ingredients,
-        price: state.totalPrice
     };
 };
-
 
 // don't need mapDispatchToProps since nothing is getting dispatched in this component
 export default connect(mapStateToProps)(Checkout);
