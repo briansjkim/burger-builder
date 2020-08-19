@@ -4,9 +4,10 @@
  # Technologies Used
  * React/Redux
  * HTML/CSS
- > Axios
- > Google Firebase
- > Webpack & Babel
+ * Axios
+ * Google Firebase
+ * Webpack & Babel
+ * Jest/Enzyme
  
  # Starting
   1. From the root directory, run the following command:
