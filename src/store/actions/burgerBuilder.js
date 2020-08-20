@@ -14,3 +14,16 @@ export const removeIngredient = (name) => {
         ingredientName: name
     };
 };
+
+export const setIngredients = (ingredients) => {
+    return {
+
+    };
+};
+
+export const initIngredients = () => {
+    // redux-thunk allows us to get access to dispatch and use this syntax
+    return dispatch => {
+
+    };
+};
