@@ -8,3 +8,10 @@ export const purchaseBurgerSuccess = (id, orderData) => {
         orderData: orderData
     };
 };
+
+export const purchaseBurgerFail = (error) => {
+    return {
+        type: actionTypes.PURCHASE_BURGER_FAIL,
+        error: error
+    };
+};
