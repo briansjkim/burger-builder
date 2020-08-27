@@ -11,5 +11,5 @@ export {
 } from './order';
 
 export {
-    authStart
+    auth
 } from './auth';
