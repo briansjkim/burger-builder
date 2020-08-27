@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import { KEY } from '../config.js';
 import * as actionTypes from './actionTypes';
 
 export const authStart = () => {
@@ -8,10 +9,11 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (authData) => {
+export const authSuccess = (token, userId) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        authData: authData
+        idToken: token,
+        userId: userId
     };
 };
 
@@ -31,14 +33,14 @@ export const auth = (email, password, isSignup) => {
             password: password,
             returnSecureToken: true
         };
-        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAH7XuiiVn5DEjQihzculYTmFu6HLSRaDs';
+        let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${KEY}`;
         if (!isSignup) {
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAH7XuiiVn5DEjQihzculYTmFu6HLSRaDs'
+            url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${KEY}`;
         };
         axios.post(url, authData)
             .then(response => {
                 console.log(response);
-                dispatch(authSuccess(response.data));
+                dispatch(authSuccess(response.data.idToken, response.data.localId));
             })
             .catch(err => {
                 console.log(err) ;

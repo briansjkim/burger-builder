@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+# api key
+/src/store/config.js
+
 # testing
 /coverage
 
