@@ -1,6 +1,6 @@
 // reducer for submitting orders
 import * as actionTypes from '../actions/actionTypes';
-import { updateObject } from './utlity';
+import { updateObject } from '../utlity';
 
 const initialState = {
     orders: [],
