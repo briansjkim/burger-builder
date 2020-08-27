@@ -83,7 +83,7 @@ class Auth extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value);
+        this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
     };
 
     switchAuthModeHandler = () => {
@@ -123,7 +123,7 @@ class Auth extends Component {
                 <Button 
                     clicked={this.switchAuthModeHandler}
                     btnType="Danger">
-                        SWITCH TO {this.state.isSignup ? 'SIGN IN' : 'SIGN UP'}
+                        SWITCH TO {this.state.isSignup ? 'LOG IN' : 'SIGN UP'}
                 </Button>
             </div>
         );
@@ -132,7 +132,7 @@ class Auth extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (email, password) => dispatch(actions.auth(email, password))
+        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup))
     };
 };
 
