@@ -25,6 +25,9 @@ export const authFail = (error) => {
 };
 
 export const logOut = () => {
+    // remove token and expirationTime when user logs out
+    localStorage.removeItem('token');
+    localStorage.removeItem('expirationTime');
     return {
         type: actionTypes.AUTH_LOGOUT
     };
@@ -54,6 +57,11 @@ export const auth = (email, password, isSignup) => {
         axios.post(url, authData)
             .then(response => {
                 console.log(response);
+                const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
+                // store data in local storage in order to persist user data when site is refreshed
+                localStorage.setItem('token', response.data.idToken);
+                // also store expiration date in local storage
+                localStorage.setItem('expirationDate', expirationDate)
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
                 dispatch(checkAuthTimeout(response.data.expiresIn));
             })
