@@ -10,7 +10,7 @@ class Checkout extends Component {
 
     UNSAFE_componentWillMount() {
         this.props.onInitPurchase();
-    }
+    };
 
     checkoutCancelledHandler = () => {
         this.props.history.goBack();

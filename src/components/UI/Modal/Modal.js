@@ -7,14 +7,9 @@ class Modal extends Component {
     //  used for performance optimization. nothing else
     shouldComponentUpdate(nextProps, nextState) {
         return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
-    }
+    };
     // componentWillUpdate will be executed if shouldComponentUpdate returns true
     // if it returns false, componentWillUpdate won't run
-
-    // it's better to use PureComponent instead of this method, but PureComponent will do more checks than what I need
-    UNSAFE_componentWillUpdate() {
-        console.log('[Modal] WillUpdate');
-    }
 
     render() {
         return (

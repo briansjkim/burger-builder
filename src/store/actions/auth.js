@@ -57,7 +57,6 @@ export const auth = (email, password, isSignup) => {
         };
         axios.post(url, authData)
             .then(response => {
-                console.log(response);
                 const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
                 // store data in local storage in order to persist user data when site is refreshed
                 localStorage.setItem('token', response.data.idToken);
