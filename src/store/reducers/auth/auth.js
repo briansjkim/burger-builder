@@ -1,5 +1,5 @@
-import * as actionTypes from '../actions/actionTypes';
-import { updateObject } from '../../shared/utlity';
+import * as actionTypes from '../../actions/actionTypes';
+import { updateObject } from '../../../shared/utlity';
 
 const initialState = {
     token: null,
@@ -56,7 +56,7 @@ const reducer = (state = initialState, action) => {
             return setAuthRedirectPath(state, action);
         default:
             return state;
-    }
+    };
 };
 
 export default reducer;
