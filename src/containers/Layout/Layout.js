@@ -5,14 +5,14 @@ import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import classes from './Layout.css';
 
-class Layout extends Component {
+export class Layout extends Component {
     state = {
         showSideDrawer: true
-    }
+    };
 
     sideDrawerClosedHandler = () => {
         this.setState({ showSideDrawer: false });
-    }
+    };
 
     sideDrawerToggleHandler = () => {
         // setState is async so using this.state may cause unexpected outcomes
@@ -20,7 +20,7 @@ class Layout extends Component {
         this.setState((prevState) => { 
             return { showSideDrawer: !prevState.showSideDrawer };
         });
-    }
+    };
 
     render() {
         return (
@@ -37,8 +37,8 @@ class Layout extends Component {
                     {this.props.children}
                 </main>
             </Fragment>
-        )
-    }
+        );
+    };
 };
 
 const mapStateToProps = state => {
