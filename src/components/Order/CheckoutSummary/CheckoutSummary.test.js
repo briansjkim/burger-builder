@@ -21,4 +21,4 @@ describe('<CheckoutSummary />', () => {
     it('shoulder render two <Buttons />', () => {
         expect(wrapper.find(Button)).toHaveLength(2);
     });
-})
+});
