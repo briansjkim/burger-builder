@@ -10,7 +10,7 @@ import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../../store/actions/index';
 import { updateObject, checkValidity } from '../../../shared/utlity';
 
-class ContactData extends Component {
+export class ContactData extends Component {
     state = {
         orderForm: {
             name: {
